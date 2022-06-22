@@ -1,0 +1,33 @@
+h3 {
+    text-align: center;
+}
+
+.rpsButtons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+}
+
+p{
+    text-align: center;
+}
+.computerChoice {
+    color: red;
+    font-size: 30px;
+}
+
+.playerChoice {
+    color: blue;
+    font-size: 30px;
+}
+
+.roundResult {
+    color: green;
+    font-size: 30px;
+}
+

@@ -28,28 +28,31 @@ function rockPaperScissors(playerSelection,computerSelection) {
     return result;
 }
 
-function game() {
+function playRound(PlayerChoice) {
+   
     let roundResult = '';
+     /* variables for keeping score
     let playerScore = 0;
     let computerScore = 0;
     let tie = 0;
-    for (let i = 1; i <= 5; i++) {
-        console.log('Round', i);
-        let playerSelection = prompt("Please enter either Paper, Rock or Scissors");
-        let lowerCasePlayerChoice = playerSelection.toLowerCase();
-        const computerSelection = computerPlay();
-        console.log('Computer Choice:', computerSelection);
-        console.log('Player Choice:', lowerCasePlayerChoice);
-        roundResult = rockPaperScissors(lowerCasePlayerChoice,computerSelection);
-        console.log(roundResult);
-        if (roundResult == 'Player Wins!') {
-            playerScore++;
-        } else if (roundResult == 'Computer Wins!') {
-            computerScore++;
-        } else {
-            tie++;
+    */
+
+    let playerSelection = PlayerChoice;
+    const computerSelection = computerPlay();
+    document.getElementById("computerChoice").innerHTML = computerSelection;
+    document.getElementById("playerChoice").innerHTML = playerSelection;
+    roundResult = rockPaperScissors(playerSelection,computerSelection);
+    document.getElementById("roundResult").innerHTML = roundResult;
+
+    /* how we keep score
+    if (roundResult == 'Player Wins!') {
+        playerScore++;
+    } else if (roundResult == 'Computer Wins!') {
+        computerScore++;
+    } else {
+        tie++;
         }
-    }
+    
 
     console.log('Total Player Wins:', playerScore);
     console.log('Total Computer Wins:', computerScore);
@@ -62,8 +65,21 @@ function game() {
     } else {
         console.log('There was a tie!');
     }
+    */
 }
-console.log(game())
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        let playerChoice = event.target.id;
+        playRound(playerChoice);
+        //document.getElementById("results").innerHTML = computerSelection;
+    });
+  });
+
 
 
 
